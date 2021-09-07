@@ -89,7 +89,7 @@ module.exports = router;
 
 - **Views**: To keep things nice and clean, we will also create separate folders for `celebrities` and `movies`: `views/celebrities` and `views/movies`. Also, we will create a couple of files in each folder:
 
-  - `views/celebrities/celebrities.hbs`
+  - `views/celebrities/`celebrities.hbs
   - `views/celebrities/new-celebrity.hbs`
 
   - `views/movies/movies.hbs`
