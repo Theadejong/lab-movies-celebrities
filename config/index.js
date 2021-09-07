@@ -28,8 +28,7 @@ module.exports = (app) => {
   app.use(cookieParser());
 
   // Normalizes the path to the views folder
-  // *Create arrays so you can [] shorten your link for the hbs.files*
-  app.set("views", [path.join(__dirname, "..", "views"),path.join(__dirname, "..", "views/celebrities"), ,path.join(__dirname, "..", "views/movies")]);
+  app.set("views", path.join(__dirname, "..", "views"));
   // Sets the view engine to handlebars
   app.set("view engine", "hbs");
   // Handles access to the public folder
