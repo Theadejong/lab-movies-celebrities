@@ -6,7 +6,7 @@ const Celebrity = require('../models/Celebrity.model');
 router.get(
     "/create",
     (req, res) => {
-        res.render("celebrities/new-celebrity")
+        res.render("new-celebrity")
     })
 
 router.get(
@@ -14,7 +14,7 @@ router.get(
     (req, res) => {
         Celebrity.find()
             .then(allCelebs => {
-                res.render('celebrities/celebrities', {
+                res.render('celebrities', {
                     allCelebs
                 })
             })
@@ -26,7 +26,7 @@ router.post(
         const {name, occupation, catchPhrase} = req.body
         Celebrity.create({name, occupation, catchPhrase})
             .then(newCelebrity => res.redirect("/celebrities"))
-            .catch(err => res.render("/celebrities/new-celebrity"))
+            .catch(err => res.render("new-celebrity"))
     })
 
 

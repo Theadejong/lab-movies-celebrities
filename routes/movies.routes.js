@@ -8,7 +8,7 @@ router.get(
     (req, res) => {
         Celebrity.find()
             .then((allCelebs) => {
-                res.render("movies/new-movie", {
+                res.render("new-movie", {
                     allCelebs
                 })
           })
@@ -23,7 +23,7 @@ router.get(
         Movie.findById(req.params.id)
             .populate("cast")
             .then((movie) => {
-                res.render("movies/movie-details", movie)
+                res.render("movie-details", movie)
             })
             .catch((err) => {
                 console.log(err)
@@ -40,7 +40,7 @@ router.get("/:id/delete", (req, res) => {
 router.route("/:id/edit")
     .get((req, res) => {
         Movie.findById(req.params.id)
-            .then(movie => res.render("movies/edit-movie", movie))
+            .then(movie => res.render("edit-movie", movie))
     })
     .post((req, res) => {
         const {title, genre, plot, cast} = req.body
@@ -56,7 +56,7 @@ router.post(
         const {title, genre, plot, cast} = req.body
         Movie.create({title, genre, plot, cast})
             .then(newMovie => res.redirect("/movies"))
-            .catch(err => res.render("/movies/new-movie"))
+            .catch(err => res.render("new-movie"))
     })
 
 router.get(
@@ -64,7 +64,7 @@ router.get(
     (req, res) => { // What URL does this answer?
         Movie.find()
             .then(movies => {
-                res.render('movies/movies', {
+                res.render('movies', {
                     movies
                 })
             })
